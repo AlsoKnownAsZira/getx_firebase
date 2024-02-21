@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "547053335213",
+    "project_id": "getxfirebase-a0dd3",
+    "storage_bucket": "getxfirebase-a0dd3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547053335213:android:2479ef6506acf99bf34c24",
+        "android_client_info": {
+          "package_name": "com.example.getxflutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjcoe6z7wIlg3VGi1KDD0cM_C3WTA-zxo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
