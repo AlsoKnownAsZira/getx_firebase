@@ -1,23 +1,18 @@
+
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:getxflutter/app/routes/app_pages.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  FirebaseAuth auth = FirebaseAuth.instance;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  void logout() async {
+    await auth.signOut();
+    try {
+      await auth.signOut();
+      Get.offAllNamed(Routes.LOGIN_PAGE);
+    } catch (e) {
+      print(e);
+    }
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

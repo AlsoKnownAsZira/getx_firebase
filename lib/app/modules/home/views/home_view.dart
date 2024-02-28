@@ -13,12 +13,10 @@ class HomeView extends GetView<HomeController> {
         title: const Text('HomeView'),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+      body: Center(
+          child: ElevatedButton(onPressed: () {
+            controller.logout();
+          }, child: Text("Logout"))),
     );
   }
 }
