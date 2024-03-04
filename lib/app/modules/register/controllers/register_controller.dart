@@ -21,6 +21,7 @@ class RegisterController extends GetxController {
                 email: emailController.text, password: passwordController.text);
         print(userCredential);
         isLoading.value = false;
+        await auth.signOut();
         Get.offAllNamed(Routes.LOGIN_PAGE);
       } on FirebaseAuthException catch (e) {
         isLoading.value = false;
@@ -32,7 +33,7 @@ class RegisterController extends GetxController {
     }
   }
 
-  Future<bool> isUserLoggedIn() async{
+  Future<bool> isUserLoggedIn() async {
     try {
       //check if there is a current user
       User? user = auth.currentUser;
