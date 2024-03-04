@@ -6,23 +6,25 @@ import 'package:getxflutter/app/routes/app_pages.dart';
 class LoginPageController extends GetxController {
   RxBool isLoading = false.obs;
   TextEditingController emailController =
-      TextEditingController(text: "EMAIL@Mail.com");
+      TextEditingController();
   TextEditingController passwordController =
-      TextEditingController(text: "MY SECRET PASSWORD");
+      TextEditingController();
 
   FirebaseAuth auth = FirebaseAuth.instance;
 
   void login() async {
-    isLoading.value = true;
-    try {
-      isLoading.value = false;
-      UserCredential userCredential = await auth.signInWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text);
-      print(userCredential);
-      isLoading.value = false;
-      Get.offAllNamed(Routes.HOME);
-    } on FirebaseAuthException catch (e) {
-      print(e.code);
+    if (emailController.text.isNotEmpty && passwordController.text.isNotEmpty) {
+      isLoading.value = true;
+      try {
+        isLoading.value = false;
+        UserCredential userCredential = await auth.signInWithEmailAndPassword(
+            email: emailController.text, password: passwordController.text);
+        print(userCredential);
+        isLoading.value = false;
+        Get.offAllNamed(Routes.HOME);
+      } on FirebaseAuthException catch (e) {
+        print(e.code);
+      }
     }
   }
 }

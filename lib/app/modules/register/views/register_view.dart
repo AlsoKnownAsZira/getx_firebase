@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:getxflutter/app/routes/app_pages.dart';
-import '../controllers/login_page_controller.dart';
 
-class LoginPageView extends GetView<LoginPageController> {
-  const LoginPageView({Key? key}) : super(key: key);
+import '../controllers/register_controller.dart';
+
+
+
+class RegisterView extends GetView<RegisterController> {
+  const RegisterView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('LoginPageView'),
+          title: const Text('RegisterView'),
           centerTitle: true,
         ),
         body: ListView(
@@ -37,12 +39,11 @@ class LoginPageView extends GetView<LoginPageController> {
             ),
             Obx(() => ElevatedButton(
                 onPressed: () {
-                  controller.login();
+                  controller.register();
                 },
                 child: Text(controller.isLoading.isFalse
-                    ? 'Login'
+                    ? 'Register'
                     : 'Loading... Please Wait'))),
-                    ElevatedButton(onPressed: ()=>Get.toNamed(Routes.REGISTER), child: Text("Register"))
           ],
         ));
   }
