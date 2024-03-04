@@ -25,10 +25,23 @@ class RegisterController extends GetxController {
       } on FirebaseAuthException catch (e) {
         isLoading.value = false;
         print(e.code);
-      }catch(e){
+      } catch (e) {
         isLoading.value = false;
         print(e);
       }
+    }
+  }
+
+  Future<bool> isUserLoggedIn() async{
+    try {
+      //check if there is a current user
+      User? user = auth.currentUser;
+      //Return true if there is a logged in user, otherwise false
+      return user != null;
+    } catch (e) {
+      //handle exceptions
+      print("Error checking user login status: $e ");
+      return false;
     }
   }
 }

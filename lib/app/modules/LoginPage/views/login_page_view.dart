@@ -42,7 +42,9 @@ class LoginPageView extends GetView<LoginPageController> {
                 child: Text(controller.isLoading.isFalse
                     ? 'Login'
                     : 'Loading... Please Wait'))),
-                    ElevatedButton(onPressed: ()=>Get.toNamed(Routes.REGISTER), child: Text("Register"))
+            ElevatedButton(
+                onPressed: () => Get.toNamed(Routes.REGISTER),
+                child: Text("Register"))
           ],
         ));
   }
